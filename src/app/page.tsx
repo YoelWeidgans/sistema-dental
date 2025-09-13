@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase'
-import NavegacionPersonalizada from '../components/NavegacionPersonalizada'
+import NavegacionPersonalizada from '@/components/NavegacionPersonalizada'
 
 const supabase = createClient()
 
