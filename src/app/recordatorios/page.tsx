@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import NavegacionPersonalizada from '../../components/NavegacionPersonalizada'
 
 interface RecordatorioCompleto {
@@ -20,7 +20,7 @@ export default function RecordatoriosPage() {
   const [cargando, setCargando] = useState(true)
   const [procesando, setProcesando] = useState(false)
 
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
 
   useEffect(() => {
     cargarRecordatorios()

@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import NavegacionPersonalizada from '../../components/NavegacionPersonalizada'
 
-const supabase = createClient()
+const supabase = createSupabaseClient()
 
 export default function AnalyticsMetodoPago() {
   const [loading, setLoading] = useState(true)

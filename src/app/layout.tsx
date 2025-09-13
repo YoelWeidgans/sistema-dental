@@ -4,7 +4,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { useEffect, useState } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,7 +31,7 @@ export default function RootLayout({
 
   const cargarBranding = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createSupabaseClient()
       const { data } = await supabase
         .from('configuracion_empresa')
         .select('nombre_empresa, logo_url, color_primario, color_secundario, favicon_url, meta_description, meta_keywords')

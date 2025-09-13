@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import NavegacionPersonalizada from '@/components/NavegacionPersonalizada'
 
 interface Paciente {
@@ -43,7 +43,7 @@ export default function TratamientosPage() {
   const [fechaInicio, setFechaInicio] = useState('')
   const [notas, setNotas] = useState('')
 
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
 
   const formatearNumero = (valor: string) => {
     const soloNumeros = valor.replace(/\D/g, '')

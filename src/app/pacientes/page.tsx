@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import NavegacionPersonalizada from '@/components/NavegacionPersonalizada'
 
 interface Paciente {
@@ -37,7 +37,7 @@ interface Evolucion {
   estado_dental: string
 }
 
-const supabase = createClient()
+const supabase = createSupabaseClient()
 
 export default function Pacientes() {
   const [pacientes, setPacientes] = useState<Paciente[]>([])

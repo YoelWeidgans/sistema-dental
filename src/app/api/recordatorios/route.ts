@@ -1,10 +1,10 @@
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import { NextResponse } from 'next/server'
 
 export async function POST() {
   console.log('=== INICIO API RECORDATORIOS ===')
   
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
   
   try {
     console.log('1. Obteniendo cuotas pendientes...')
@@ -139,7 +139,7 @@ export async function POST() {
 }
 
 export async function GET() {
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
   
   try {
     // Obtener estadísticas de recordatorios

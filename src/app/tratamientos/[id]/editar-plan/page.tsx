@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 
 interface Cuota {
@@ -18,7 +18,7 @@ export default function EditarPlanPago({ params }: { params: { id: string } }) {
   const [cargando, setCargando] = useState(true)
   const [guardando, setGuardando] = useState(false)
   const router = useRouter()
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
 
   useEffect(() => {
     cargarDatos()

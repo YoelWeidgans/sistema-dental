@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import NavegacionPersonalizada from '@/components/NavegacionPersonalizada'
 
 interface EstadisticasDashboard {
@@ -29,7 +29,7 @@ export default function DashboardPage() {
   const [configuracion, setConfiguracion] = useState<ConfiguracionEmpresa | null>(null)
   const [cargando, setCargando] = useState(true)
 
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
 
   useEffect(() => {
     cargarDatos()

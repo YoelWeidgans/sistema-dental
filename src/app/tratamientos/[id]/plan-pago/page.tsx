@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import { useParams } from 'next/navigation'
 
 interface Tratamiento {
@@ -39,7 +39,7 @@ export default function PlanPagoPage() {
   const [montoPorCuota, setMontoPorCuota] = useState('')
   const [fechaInicio, setFechaInicio] = useState('')
 
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
 
   useEffect(() => {
     if (tratamientoId) {

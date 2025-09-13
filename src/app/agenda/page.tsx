@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 
-const supabase = createClient()
+const supabase = createSupabaseClient()
 
 export default function AgendaOnline() {
   const [selectedDate, setSelectedDate] = useState('')

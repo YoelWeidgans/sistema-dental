@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createSupabaseClient } from '@/lib/supabase'
 import NavegacionPersonalizada from '../../components/NavegacionPersonalizada'
 
 interface MetricasFinancieras {
@@ -21,6 +21,23 @@ interface MovimientoDiario {
   utilidad: number
 }
 
+interface Pago {
+  monto: number
+  fecha_pago?: string
+}
+
+interface Cuota {
+  id: number
+  monto: number
+  total_pagado: number | null
+  fecha_vencimiento?: string
+}
+
+interface Tratamiento {
+  paciente_id: number
+  id: number
+}
+
 export default function DashboardFinanciero() {
   const [vistActiva, setVistaActiva] = useState('ingresos-egresos')
   const [periodoActivo, setPeriodoActivo] = useState('esta-semana')
@@ -36,7 +53,7 @@ export default function DashboardFinanciero() {
   const [movimientos, setMovimientos] = useState<MovimientoDiario[]>([])
   const [cargando, setCargando] = useState(true)
 
-  const supabase = createClient()
+  const supabase = createSupabaseClient()
 
   const periodos = [
     { key: 'hoy', label: 'Hoy' },
@@ -236,7 +253,7 @@ export default function DashboardFinanciero() {
     })
   }
 
-  const obtenerColorTasaCobranza = (tasa: number) => {
+  const obtenerColorTasaCobranza = (tasa: number): string => {
     if (tasa >= 80) return 'text-green-600'
     if (tasa >= 60) return 'text-yellow-600'
     return 'text-red-600'
